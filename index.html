@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head><!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '793213293457393');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=793213293457393&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <title>HAIDER ALI (DON)
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(logo.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: #fff;
+        }
+        main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #000000b5;
+}
+
+        h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #f38400;
+}
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #fafafa;
+}
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 0.25rem 0;
+        }
+
+        .btn-join {
+            background-color: #00aaff;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 40px;
+            font-size: 1.25rem;
+            color: #fff;
+            margin-top: 2rem;
+            animation: pulse 2s infinite;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-join:hover {
+            background-color: #ffffff;
+            color: #00aaff;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 170, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 170, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 170, 255, 0); }
+        }
+
+        #countdown {
+            font-size: 1.75rem;
+            font-weight: bold;
+            margin-top: 1rem;
+            color: #ffdd57;
+        }
+
+        @keyframes loading {
+  0%   { cy: 10; }
+  25%  { cy: 3; }
+  50%  { cy: 10; }
+}
+
+.powder-loader {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin: 0 auto;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  top: 8px;
+  left: 8px;
+  animation: powder 1.5s ease-in-out infinite;
+}
+
+.p1 { background: #FF1744; animation-delay: 0s; }
+.p2 { background: #FFEA00; animation-delay: 0.1s; }
+.p3 { background: #00E676; animation-delay: 0.2s; }
+.p4 { background: #2979FF; animation-delay: 0.3s; }
+.p5 { background: #D500F9; animation-delay: 0.4s; }
+
+@keyframes powder {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  50% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0.7; }
+  100% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+
+.p1 { --x: -10px; --y: -8px; }
+.p2 { --x: 10px; --y: -6px; }
+.p3 { --x: -6px; --y: 10px; }
+.p4 { --x: 8px; --y: 8px; }
+.p5 { --x: 0px; --y: -12px; }
+
+@keyframes buttonPulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #f4f7ff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+canvas {
+  height: 100vh;
+  pointer-events: none;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+
+
+
+img {
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 93px;
+    border: 5px solid;
+    border-color: red;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    height: 71px;
+    left: 50%;
+    outline: none;
+    overflow: hidden;
+    padding: 0 10px;
+    bottom: 50%;
+    transform: translateX(-0%);
+    width: 277px;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1;
+    margin-top: 32px;
+}
+
+button::before {
+  background: linear-gradient(90deg, 
+    #FF1744, #FFEA00, #00E676, 
+    #2979FF, #D500F9, #FF9100);
+  background-size: 600% 600%;
+  animation: buttonPulse 8s ease infinite;
+  border-radius: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .4) inset;
+  content: '';
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  transition: width .2s cubic-bezier(.39,1.86,.64,1) .3s;
+  width: 100%;
+}
+
+button.ready .submitMessage svg {
+  opacity: 1;
+  top: 1px;
+  transition: top .4s ease 600ms, opacity .3s linear 600ms;
+}
+
+button.ready .submitMessage .button-text span {
+  top: 0;
+  opacity: 1;
+  transition: all .2s ease calc(var(--dr) + 600ms);
+}
+
+button.loading::before {
+  transition: width .3s ease;
+  width: 80%;
+}
+
+button.loading .loadingMessage {
+  opacity: 1;
+}
+
+button.loading .loadingCircle {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: loading;
+  cy: 10;
+}
+
+button.complete .submitMessage svg {
+  top: -30px;
+  transition: none;
+}
+
+button.complete .submitMessage .button-text span {
+  top: -8px;
+  transition: none;
+}
+
+button.complete .loadingMessage {
+  top: 80px;
+}
+
+button.complete .successMessage .button-text span {
+  left: 0;
+  opacity: 1;
+  transition: all .2s ease calc(var(--d) + 1000ms);
+}
+
+button.complete .successMessage svg { 
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset .3s ease-in-out 1.4s;
+}
+
+.button-text span {
+  opacity: 0;
+  position: relative;
+}
+
+.message {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.message svg {
+  display: inline-block;
+  fill: none;
+  margin-right: 5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.submitMessage .button-text span {
+  top: 8px;
+  transition: all .2s ease var(--d);
+}
+
+.submitMessage svg {
+  color: #ffffff;
+  margin-left: -1px;
+  opacity: 0;
+  position: relative;
+  top: 30px;
+  transition: top .4s ease, opacity .3s linear;
+  width: 14px;
+}
+
+.loadingMessage {
+  opacity: 0;
+  transition: opacity .3s linear .3s, top .4s cubic-bezier(.22,0,.41,-0.57);
+}
+
+.loadingMessage svg {
+  fill: #ffffff;
+  margin: 0;
+  width: 22px;
+}
+
+.successMessage .button-text span {
+  left: 5px;
+  transition: all .2s ease var(--dr);
+}
+  
+.successMessage svg {
+  color: #ffffff;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset .3s ease-in-out;
+  width: 14px;
+}
+
+.loadingCircle:nth-child(1) { 
+  animation-delay: 0s;
+  fill: #FF1744;
+}
+.loadingCircle:nth-child(2) { 
+  animation-delay: .1s;
+  fill: #00E676;
+}
+.loadingCircle:nth-child(3) { 
+  animation-delay: .2s;
+  fill: #FFEA00;
+}
+
+.back {
+    background-color: #6b6bf8;
+    padding: 15px;
+    border-radius: 30px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <h2> CRICKET PREDICTION KA KING</h2>
+        <img src="logo.jpg" alt="">
+        <h1>HAIDER ALI (DON)
+</h1>
+        <h3>India ka no.1 Tipper</h3>
+        <h3>HAIDER ALI (DON)
+</h3>
+        <h3>🤝 2025 Back to Back Pass 🤝</h3>
+      
+    </div>
+        <a href="https://t.me/+li6xsRcHoaliMjg1" >
+          <button id="button" class="ready">
+            <div class="message submitMessage">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12.2">
+                <polyline stroke="currentColor" points="2,7.1 6.5,11.1 11,7.1 "/>
+                <line stroke="currentColor" x1="6.5" y1="1.2" x2="6.5" y2="10.3"/>
+              </svg> <span class="button-text">Join Telegram Now</span>
+            </div>
+            
+            <div class="message loadingMessage">
+              <div class="powder-loader">
+                <div class="particle p1"></div>
+                <div class="particle p2"></div>
+                <div class="particle p3"></div>
+                <div class="particle p4"></div>
+                <div class="particle p5"></div>
+              </div>
+            </div>
+            
+            <div class="message successMessage">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 11">
+                <polyline stroke="currentColor" points="1.4,5.8 5.1,9.5 11.6,2.1 "/>
+              </svg> <span class="button-text">DONE</span>
+            </div>
+          </button>
+          </a>
+          <canvas id="canvas"></canvas>
+    </main>
+
+    <script>
+        function redirectToTelegram() {
+            window.location.href = "https://t.me/+li6xsRcHoaliMjg1";
+        }
+
+        function startCountdown() {
+            let seconds = 60;
+            const countdownEl = document.getElementById('countdown');
+            const interval = setInterval(() => {
+                seconds--;
+                countdownEl.innerText = seconds;
+                if (seconds <= 0) clearInterval(interval);
+            }, 1000);
+        }
+
+        window.onload = startCountdown;
+
+
+
+
+        let disabled = false;
+const button = document.getElementById('button');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let confetti = [];
+let sequins = [];
+
+// Set up canvas
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+let cx = ctx.canvas.width / 2;
+let cy = ctx.canvas.height / 2;
+
+// Animation constants
+const confettiCount = 150; // Increased for more density
+const sequinCount = 80;
+const gravityConfetti = 0.25;
+const gravitySequins = 0.45;
+const dragConfetti = 0.05;
+const dragSequins = 0.02;
+const terminalVelocity = 3;
+
+// Flag to track first visit
+let firstVisit = true;
+
+// Check for previous visits using localStorage
+if (localStorage.getItem('hasVisited')) {
+  // firstVisit = false;
+} else {
+  // Set the flag to indicate this is not the first visit anymore
+  localStorage.setItem('hasVisited', 'true');
+}
+
+// Holi colors - vibrant gulal powder colors
+const colors = [
+  { front: '#FF1744', back: '#D50000' }, // Red
+  { front: '#FFEA00', back: '#FFD600' }, // Yellow
+  { front: '#00E676', back: '#00C853' }, // Green
+  { front: '#2979FF', back: '#2962FF' }, // Blue
+  { front: '#D500F9', back: '#AA00FF' }, // Purple
+  { front: '#FF9100', back: '#FF6D00' }, // Orange
+  { front: '#F06292', back: '#EC407A' }, // Pink (gulabi)
+  { front: '#18FFFF', back: '#00E5FF' }  // Cyan
+];
+
+// Helper function for random numbers
+function randomRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// Initial velocity for powder particles
+function initConfettoVelocity(xRange, yRange) {
+  const x = randomRange(xRange[0], xRange[1]);
+  const range = yRange[1] - yRange[0] + 1;
+  let y = yRange[1] - Math.abs(randomRange(0, range) + randomRange(0, range) - range);
+  if (y >= yRange[1] - 1) {
+    y += (Math.random() < .25) ? randomRange(1, 3) : 0;
+  }
+  return {x: x, y: -y};
+}
+
+// Helper to convert hex to rgb
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+  return `${r}, ${g}, ${b}`;
+}
+
+// Confetto constructor - represents larger powder particles
+function Confetto() {
+  this.randomModifier = randomRange(0, 99);
+  this.color = colors[Math.floor(randomRange(0, colors.length))];
+  
+  // More varied shapes for powder look
+  this.isCircular = Math.random() < 0.7;
+  
+  if (this.isCircular) {
+    this.dimensions = {
+      x: randomRange(5, 9),
+      y: randomRange(5, 9)
+    };
+  } else {
+    this.dimensions = {
+      x: randomRange(4, 10),
+      y: randomRange(3, 8)
+    };
+  }
+  
+  // Enhanced texture properties
+  this.noiseLevel = randomRange(0.2, 0.9);
+  this.initialOpacity = randomRange(0.7, 1.0);
+  this.opacity = this.initialOpacity;
+  this.matteFactor = randomRange(0.5, 0.9);
+  
+  // Position and movement
+  this.position = {
+    x: randomRange(canvas.width/2 - button.offsetWidth/3, canvas.width/2 + button.offsetWidth/3),
+    y: randomRange(canvas.height/2 + button.offsetHeight/2, canvas.height/2 + (1.5 * button.offsetHeight)),
+  };
+  this.rotation = randomRange(0, 2 * Math.PI);
+  this.scale = { x: 1, y: 1 };
+  this.velocity = initConfettoVelocity([-12, 12], [10, 16]); // Enhanced velocity
+}
+
+// Update confetto physics
+Confetto.prototype.update = function() {
+  // Apply forces with randomness for natural dispersion
+  this.velocity.x -= this.velocity.x * dragConfetti;
+  this.velocity.y = Math.min(this.velocity.y + gravityConfetti, terminalVelocity);
+  
+  // Add unpredictable movement
+  if (Math.random() > 0.9) {
+    this.velocity.x += (Math.random() > 0.5 ? 0.3 : -0.3) * randomRange(0.5, 1.5);
+  }
+  
+  // Update position
+  this.position.x += this.velocity.x;
+  this.position.y += this.velocity.y;
+  
+  // Adjust scale for 3D effect
+  this.scale.y = Math.max(0.1, Math.cos((this.position.y + this.randomModifier) * 0.09) * this.matteFactor);
+  
+  // Decrease opacity for fade effect
+  this.opacity = Math.max(0, this.opacity - 0.006 * randomRange(0.95, 1.05));
+  
+  // Air resistance
+  if (Math.abs(this.velocity.x) > 0.1) {
+    this.velocity.x *= 0.99;
+  }
+};
+
+// Sequin constructor - represents tiny powder particles
+function Sequin() {
+  this.color = colors[Math.floor(randomRange(0, colors.length))].front;
+  this.radius = randomRange(1, 3);
+  this.position = {
+    x: randomRange(canvas.width/2 - button.offsetWidth/3, canvas.width/2 + button.offsetWidth/3),
+    y: randomRange(canvas.height/2 + button.offsetHeight/2, canvas.height/2 + (1.5 * button.offsetHeight)),
+  };
+  this.velocity = {
+    x: randomRange(-8, 8),
+    y: randomRange(-10, -14)
+  };
+  this.opacity = randomRange(0.8, 1.0);
+  this.grainFactor = randomRange(0.85, 0.95);
+}
+
+// Update sequin physics
+Sequin.prototype.update = function() {
+  // Apply forces with randomness
+  this.velocity.x -= this.velocity.x * dragSequins;
+  this.velocity.y = this.velocity.y + gravitySequins;
+  
+  // Random movement
+  if (Math.random() > 0.9) {
+    this.velocity.x += (Math.random() > 0.5 ? 0.2 : -0.2);
+  }
+  
+  // Update position
+  this.position.x += this.velocity.x;
+  this.position.y += this.velocity.y;
+  
+  // Fade effect
+  this.opacity = Math.max(0, this.opacity - 0.01 * this.grainFactor);
+};
+
+// Initialize particles
+function initBurst() {
+  for (let i = 0; i < confettiCount; i++) {
+    confetti.push(new Confetto());
+  }
+  for (let i = 0; i < sequinCount; i++) {
+    sequins.push(new Sequin());
+  }
+}
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Draw confetti (larger particles)
+  confetti.forEach((confetto) => {
+    let width = confetto.dimensions.x * confetto.scale.x;
+    let height = confetto.dimensions.y * confetto.scale.y;
+    
+    // Position and rotate
+    ctx.save();
+    ctx.translate(confetto.position.x, confetto.position.y);
+    ctx.rotate(confetto.rotation);
+
+    // Update physics
+    confetto.update();
+    
+    // Set fill color with opacity
+    const colorRgb = hexToRgb(confetto.scale.y > 0 ? confetto.color.front : confetto.color.back);
+    ctx.fillStyle = `rgba(${colorRgb}, ${confetto.opacity})`;
+    
+    // Draw appropriate shape
+    if (confetto.isCircular) {
+      // Circular particle
+      ctx.beginPath();
+      ctx.arc(0, 0, width/2, 0, 2 * Math.PI);
+      ctx.fill();
+      
+      // Add texture with dots
+      if (confetto.noiseLevel > 0.5) {
+        const dotCount = Math.floor(randomRange(3, 7));
+        for (let i = 0; i < dotCount; i++) {
+          const dotX = randomRange(-width/3, width/3);
+          const dotY = randomRange(-height/3, height/3);
+          const dotSize = randomRange(0.5, 1.5);
+          
+          ctx.fillStyle = `rgba(${colorRgb}, ${confetto.opacity * 0.7})`;
+          ctx.beginPath();
+          ctx.arc(dotX, dotY, dotSize, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      }
+    } else {
+      // Irregular shape
+      ctx.beginPath();
+      const sides = Math.floor(randomRange(5, 8));
+      const startAngle = Math.random() * Math.PI * 2;
+      
+      for (let i = 0; i < sides; i++) {
+        const angle = startAngle + (i * 2 * Math.PI / sides);
+        const radius = width/2 * (0.8 + Math.random() * 0.4);
+        
+        const x = Math.cos(angle) * radius;
+        const y = Math.sin(angle) * radius;
+        
+        if (i === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+      
+      ctx.closePath();
+      ctx.fill();
+    }
+    
+    ctx.restore();
+  });
+
+  sequins.forEach((sequin) => {  
+    ctx.save();
+    ctx.translate(sequin.position.x, sequin.position.y);
+    
+    // Update physics
+    sequin.update();
+    
+    // Set color with opacity
+    ctx.fillStyle = `rgba(${hexToRgb(sequin.color)}, ${sequin.opacity})`;
+    
+    // Draw tiny particle
+    ctx.beginPath();
+    ctx.arc(0, 0, sequin.radius, 0, 2 * Math.PI);
+    ctx.fill();
+    
+    // Add texture
+    if (Math.random() > 0.7) {
+      ctx.fillStyle = `rgba(${hexToRgb(sequin.color)}, ${sequin.opacity * 0.6})`;
+      ctx.beginPath();
+      ctx.arc(randomRange(-0.5, 0.5), randomRange(-0.5, 0.5), sequin.radius * 0.5, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  });
+
+  confetti = confetti.filter(c => c.position.y < canvas.height && c.opacity > 0.1);
+  sequins = sequins.filter(s => s.position.y < canvas.height && s.opacity > 0.1);
+  requestAnimationFrame(render);
+}
+
+function clickButton() {
+  if (!disabled) {
+    disabled = true;
+    // Loading stage
+    button.classList.add('loading');
+    button.classList.remove('ready');
+    setTimeout(() => {
+      // Completed stage
+      button.classList.add('complete');
+      button.classList.remove('loading');
+      setTimeout(() => {
+        // Create the burst
+        initBurst();
+        setTimeout(() => {
+  // Reset button
+  disabled = false;
+  button.classList.add('ready');
+  button.classList.remove('complete');
+
+  // 🔗 Redirect here
+  // window.location.href = "https://t.me/+m7eCpYH6pqozZGFl";
+}, 4000);
+
+      }, 320);
+    }, 1800);
+  }
+}
+
+// Event listener for manual button click
+button.addEventListener('click', clickButton);
+
+// Auto-click function that triggers on first load
+function autoClickOnFirstLoad() {
+  // Use a short delay to ensure everything is loaded properly
+  setTimeout(() => {
+    // Check if this is the first visit
+    if (firstVisit) {
+      clickButton();
+    }
+  }, 15000); // Delay of 1 second before auto-clicking
+}
+
+// Call the function when the page loads
+window.addEventListener('load', autoClickOnFirstLoad);
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  cx = ctx.canvas.width / 2;
+  cy = ctx.canvas.height / 2;
+}
+
+window.addEventListener('resize', resizeCanvas);
+
+document.body.onkeyup = (e) => {
+  if (e.keyCode == 13 || e.keyCode == 32) {
+    clickButton();
+  }
+};
+
+const textElements = button.querySelectorAll('.button-text');
+textElements.forEach((element) => {
+  const characters = element.innerText.split('');
+  let characterHTML = '';
+  characters.forEach((letter, index) => {
+    characterHTML += `<span class="char${index}" style="--d:${index * 30}ms; --dr:${(characters.length - index - 1) * 30}ms;">${letter}</span>`;
+  });
+  element.innerHTML = characterHTML;
+});
+
+requestAnimationFrame(render);
+
+
+
+  // Function to create and inject the stylesheet
+  function injectCSS(css) {
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.appendChild(style);
+  }
+
+  // Function to create and inject the HTML
+  function injectHTML(html) {
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    document.body.appendChild(div.firstElementChild);
+  }
+
+  // Check if document is loaded, then inject
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      injectCSS(socialLinksCSS);
+      injectHTML(socialLinksHTML);
+    });
+  } else {
+    injectCSS(socialLinksCSS);
+    injectHTML(socialLinksHTML);
+  }
+
+
+
+
+    </script>
+</body>
+</html>
